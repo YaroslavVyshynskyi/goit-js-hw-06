@@ -24,11 +24,14 @@ button {
 }
 
 .gallery {
+  padding-left: 0px;
+}
+
+.gallery_item {
   display: flex;
   flex-direction: column;
 } 
 
-.image {
-  display: inline-block;
-  width: 100%;
+.gallery_item:not(:last-child) {
+  margin-bottom:15px;
 }

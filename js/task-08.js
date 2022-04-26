@@ -8,18 +8,18 @@ form.addEventListener("submit", OnFormSubmit);
 function OnFormSubmit(event) {
     event.preventDefault();
     
-    formInputs.forEach(input => {
-        if (input.value === '') {
-            window.alert("всі поля повинні бути заповнені");
-        }
-    });
-    
-    const {
-    elements: { email, password }
-    } = event.currentTarget;
-    console.log("email:", email.value, "|", "password:", password.value);
+    const formElements = event.currentTarget.elements;
+    const mail = formElements.email.value;
+    const pass = formElements.password.value;
 
-    const formData = new FormData(event.currentTarget);
-
-    form.reset();
+    if (mail === '' || pass === '') {
+        window.alert("всі поля повинні бути заповнені");
+    } else {
+        const formData = new FormData(event.currentTarget);
+        formData.forEach((value, name) => {
+            console.log("name: ", name);
+            console.log("value: ", value);
+        });
+        form.reset();
+    };
 };
