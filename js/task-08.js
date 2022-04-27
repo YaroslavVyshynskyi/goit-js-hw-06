@@ -11,15 +11,13 @@ function OnFormSubmit(event) {
     const formElements = event.currentTarget.elements;
     const mail = formElements.email.value;
     const pass = formElements.password.value;
+    
 
     if (mail === '' || pass === '') {
         window.alert("всі поля повинні бути заповнені");
     } else {
-        const formData = new FormData(event.currentTarget);
-        formData.forEach((value, name) => {
-            console.log("name: ", name);
-            console.log("value: ", value);
-        });
-        form.reset();
+        const formObj = { mail, pass };
+        console.log(formObj);
     };
+    form.reset();
 };

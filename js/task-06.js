@@ -5,7 +5,7 @@ input.addEventListener('input', onInput);
 function onInput(event) {
     input.addEventListener("blur", () => {
         input.className = '';
-        if (input.value.length > Number(input.dataset.length))
+        if (input.value.length === Number(input.dataset.length))
         {
             input.classList.add("valid");
         }
